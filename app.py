@@ -86,12 +86,12 @@ def main():
     
     # Inicializa o estado da sessão se não existir
     if 'pagina_atual' not in st.session_state:
-        st.session_state.pagina_atual = "📈 Análise de Vagas"
+        st.session_state.pagina_atual = "📈 Vagas"
     
     # Botões de navegação com melhor layout
     paginas = [
-        ("📈 Análise de Vagas", "📈 Análise de Vagas"),
-        ("👤 Candidatos Detalhados", "👤 Candidatos Detalhados"),
+        ("📈 Vagas", "📈 Vagas"),
+        ("👤 Candidatos", "👤 Candidatos"),
         ("🔬 Análises Avançadas", "🔬 Análises Avançadas"),
         ("🤖 Feature Engineering", "🤖 Feature Engineering"),
         ("🧠 Deep Learning", "🧠 Deep Learning"),
@@ -108,12 +108,12 @@ def main():
         create_metrics_dashboard(df_vagas, df_prospects, df_candidates)
     
     # Conteúdo baseado na seleção
-    if st.session_state.pagina_atual == "📈 Análise de Vagas":
+    if st.session_state.pagina_atual == "📈 Vagas":
         # Análise de Vagas
         from pages.vagas_analysis import create_vagas_analysis_interface
         create_vagas_analysis_interface(df_vagas)
     
-    elif st.session_state.pagina_atual == "👤 Candidatos Detalhados":
+    elif st.session_state.pagina_atual == "👤 Candidatos":
         # Análise de candidatos
         from pages.candidates_analysis import show_applicants_analysis
         show_applicants_analysis(df_candidates)
